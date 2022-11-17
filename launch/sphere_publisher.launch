@@ -1,0 +1,12 @@
+<launch>
+    <!-- Publishes Static Transform to Create TF Tree -->
+    <node pkg="tf" type="static_transform_publisher" name="static_sphere_tf_publisher" args="0 0 0 0 0 0 1 map sphere 10"/> 
+
+    <!-- Launches RViz -->
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find rviz_with_python)/rviz/sphere_setup.rviz" />
+
+    <!-- Launches our script to publish the spheres -->
+    <node pkg="rviz_with_python" name="publish_spheres" type="publish_spheres.py" output="screen"/>
+
+</launch>
+
